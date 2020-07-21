@@ -43,7 +43,7 @@ if(isset($_GET['delete_id'])){
                     <?php
                       if(isset($_GET['updated'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro atualizado com sucesso!<trong> .
+                        <strong>Carro atualizado com sucesso!<strong>
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"> &times; </span>
                           </button>
@@ -104,7 +104,7 @@ if(isset($_GET['delete_id'])){
                                     <td><?php print($rowCarro['marca']); ?></td>
 
                                     <td><?php print($rowCarro['ano']); ?></td>
-                                    <td><?php print($rowCarro['vlr_fip']); ?></td>
+                                    <td><?php print($rowCarro['vlr_fip']); ?> R$</td>
 
                                     <td>
                                       <a class="confirmation" href="index.php?delete_id=<?php print($rowCarro['id']); ?>">

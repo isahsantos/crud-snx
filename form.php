@@ -9,13 +9,13 @@ require_once 'classes/carro.php';
 $objCarro = new Carro();
 //  Metodo get 
 if(isset($_GET['edit_id'])){
-    $id = $_GET['edit_id'];
-    $stmt = $objCarro->runQuery("SELECT * FROM carro WHERE id=:id");
-    $stmt->execute(array(":id" => $id));
-    $rowCarro = $stmt->fetch(PDO::FETCH_ASSOC);
+  $id = $_GET['edit_id'];
+  $stmt = $objCarro->runQuery("SELECT * FROM carro WHERE id=:id");
+  $stmt->execute(array(":id" => $id));
+  $rowCarro = $stmt->fetch(PDO::FETCH_ASSOC);
 }else{
-  $id = null;
-  $rowCarro  = null;
+$id = null;
+$rowCarro = null;
 }
 
 // Metodo post
@@ -57,10 +57,6 @@ if(isset($_POST['btn_save'])){
                   <h1 style="margin-top: 40px">Add/Editar Carro</h1>
                   <form  method="post">
                     <h5> Todos os campos são obrigatórios</h5>               
-                    <div class="form-group">
-                        <label for="id">ID</label>
-                        <input class="form-control" type="text" name="id" id="id" value="<?php print($rowCarro=== null ? "" : $rowCarro['id']) ?>" readonly>
-                    </div>
                         <label for="modelo">Modelo *</label>
                         <input  class="form-control" type="text" name="modelo" id="modelo" placeholder="Nome do modelo" value="<?php print($rowCarro=== null ? "" : $rowCarro['modelo']) ?>" required maxlength="100">
                     </div>

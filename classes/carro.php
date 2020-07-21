@@ -1,6 +1,7 @@
 <?php
 require_once 'database.php';
 Class Carro{
+  private $conn;
 
     // Construtor
     public function __construct(){
@@ -36,21 +37,22 @@ Class Carro{
 
 
     // Update
-    public function update( $id,$modelo,$marca,$ano,$vlr_fip){
-        try{
-          $stmt = $this->conn->prepare("UPDATE carro SET modelo = :modelo, marca = :marca, ano = :ano, vlr_fip = vlr_fip WHERE id = :id");
-          $stmt->bindparam(":id", $id);
-          $stmt->bindparam(":modelo", $modelo);
-          $stmt->bindparam(":marca", $marca);
-          $stmt->bindparam(":ano", $ano);
-          $stmt->bindparam(":vlr_fip", $vlr_fip);
-         
-          $stmt->execute();
-          return $stmt;
-        }catch(PDOException $e){
-          echo $e->getMessage();
-        }
-    }
+    public function update($id,$modelo,$marca,$ano,$vlr_fip){
+      try{
+        $stmt = $this->conn->prepare("UPDATE carro SET modelo = :modelo, marca = :marca, ano= :ano, vlr_fip = :vlr_fip WHERE id = :id");
+        $stmt->bindparam(":id", $id);
+        $stmt->bindparam(":modelo", $modelo);
+        $stmt->bindparam(":marca", $marca);
+        $stmt->bindparam(":ano", $ano);
+        $stmt->bindparam(":vlr_fip", $vlr_fip);
+        $stmt->execute();
+        return $stmt;
+      }catch(PDOException $e){
+        echo $e->getMessage();
+      }
+  }
+
+
 
 
     // Delete
