@@ -37,7 +37,7 @@ if(isset($_GET['delete_id'])){
         <div  style="margin-top:30px"class="container-fluid">
             <div class="row">
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                    <h1 style="margin-top: 10px"> Listar Carros </h1>
+                    <h5 style="margin-top: 10px">Carros Cadastrados</h5>
                     <?php
                       if(isset($_GET['updated'])){
                         echo  "<script>alert('Carro atualizado com sucesso!');</script>";
