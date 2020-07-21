@@ -1,3 +1,3 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style="background-color: blue;">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">Show Carros</a>
 </nav>

@@ -2,9 +2,7 @@
 require_once 'database.php';
 Class Carro{
 
-    // private $conn;
-
-    // Constructor
+    // Construtor
     public function __construct(){
       $database = new Database();
       $db = $database->dbConnection();
@@ -12,7 +10,7 @@ Class Carro{
     }
 
 
-    // Execute queries SQL
+    // Executa queries SQL 
     public function runQuery($sql){
       $database = new Database();
       $db = $database->dbConnection();
@@ -65,7 +63,7 @@ Class Carro{
       }
     }
 
-    // Redirect URL method
+    // Redireciona  URL
     public function redirect($url){
       header("Location: $url");
     }
