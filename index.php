@@ -36,43 +36,23 @@ if(isset($_GET['delete_id'])){
         <?php require_once 'includes/header.php'; ?>
         <div  style="margin-top:30px"class="container-fluid">
             <div class="row">
-                <!-- Sidebar menu -->
-                <?php require_once 'includes/menu.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <h1 style="margin-top: 10px"> Listar Carros </h1>
                     <?php
                       if(isset($_GET['updated'])){
-                        echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro atualizado com sucesso!<strong>
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"> &times; </span>
-                          </button>
-                        </div>';
+                        echo  "<script>alert('Carro atualizado com sucesso!');</script>";
                       }else if(isset($_GET['deleted'])){
-                        echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro deletado com sucesso!<trong> 
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"> &times; </span>
-                          </button>
-                        </div>';
+                        echo  "<script>alert('Carro removido!');</script>";
                       }else if(isset($_GET['inserted'])){
-                        echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro inserido com sucesso!<strong> 
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"> &times; </span>
-                          </button>
-                        </div>';
+                        echo  "<script>alert('Carro inserido');</script>";
                       }else if(isset($_GET['error'])){
-                        echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Ops...Algo deu errado, tente novamente!</strong>!
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"> &times; </span>
-                          </button>
-                        </div>';
+                        echo  "<script>alert('Ops algo deu errado, tente novamente mais tarde');</script>";
                       }
                     ?>
+            
+              </div>
                       <div class="table-responsive">
-                        <table class="table table-striped table-sm">
+                        <table class="highlight">
                             <thead>
                               <tr>
                                 <th>#</th>
@@ -108,7 +88,7 @@ if(isset($_GET['delete_id'])){
 
                                     <td>
                                       <a class="confirmation" href="index.php?delete_id=<?php print($rowCarro['id']); ?>">
-                                      <span data-feather="trash-2"></span>
+                                      <span ><i class="material-icons center">delete_forever</i></span>
                                       </a>
                                     </td>
                                  </tr>
@@ -122,7 +102,6 @@ if(isset($_GET['delete_id'])){
                 </main>
             </div>
         </div>
-        <?php require_once 'includes/footer.php'; ?>
         <script>
             $('.confirmation').on('click', function () {
                 return confirm('Você tem certeza que deseja excluir este carro ?');

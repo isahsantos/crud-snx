@@ -52,7 +52,6 @@ if(isset($_POST['btn_save'])){
         <?php require_once 'includes/header.php'; ?>
         <div class="container-fluid">
             <div style="margin-top:10px"class="row">
-                <?php require_once 'includes/menu.php'; ?>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                   <h1 style="margin-top: 40px">Add/Editar Carro</h1>
                   <form  method="post">
@@ -72,11 +71,13 @@ if(isset($_POST['btn_save'])){
                         <label for="vlr_fip">Valor tabela Fipe *</label>
                         <input  class="form-control" type="text" name="vlr_fip" id="vlr_fip" value="<?php print($rowCarro=== null ? "" : $rowCarro['vlr_fip']) ?>" required maxlength="5">
                     </div>
-                    <input class="btn btn-primary mb-2" type="submit" name="btn_save" value="Save">
+                    <button class="btn waves-effect waves-light" value="Save" type="submit" name="btn_save">Salvar
+                    <i class="material-icons right">save</i>
+                    </button>
                   </form>
                 </main>
             </div>
         </div>
-        <?php require_once 'includes/footer.php'; ?>
+<div class="footer"><div>
     </body>
 </html>

@@ -1,3 +1,8 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">Show Carros</a>
-</nav>
+  <nav style="background-color:#120136">
+    <div class="nav-wrapper">
+      <a href="index.php" class="brand-logo">Show Carros</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="form.php" class="waves-effect waves-light btn">Adicionar novo<i class="material-icons right">control_point</i></a></li>
+      </ul>
+    </div>
+  </nav>
