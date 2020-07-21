@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 require_once 'classes/carro.php';
 
 $objCarro = new Carro();
-// GET
+//  Metodo get 
 if(isset($_GET['edit_id'])){
     $id = $_GET['edit_id'];
     $stmt = $objCarro->runQuery("SELECT * FROM carro WHERE id=:id");
@@ -18,7 +18,7 @@ if(isset($_GET['edit_id'])){
   $rowCarro  = null;
 }
 
-// POST
+// Metodo post
 if(isset($_POST['btn_save'])){
   $modelo  = strip_tags($_POST['modelo']);
   $marca  = strip_tags($_POST['marca']);
@@ -26,7 +26,7 @@ if(isset($_POST['btn_save'])){
   $vlr_fip  = strip_tags($_POST['vlr_fip']);
 
   try{
-     if($id != null && $id !=0){
+     if($id != null){
        if($objCarro->update($id,$modelo,$marca,$ano,$vlr_fip)){
          $objCarro->redirect('index.php?updated');
        }
@@ -58,6 +58,9 @@ if(isset($_POST['btn_save'])){
                   <form  method="post">
                     <h5> Todos os campos são obrigatórios</h5>               
                     <div class="form-group">
+                        <label for="id">ID</label>
+                        <input class="form-control" type="text" name="id" id="id" value="<?php print($rowCarro=== null ? "" : $rowCarro['id']) ?>" readonly>
+                    </div>
                         <label for="modelo">Modelo *</label>
                         <input  class="form-control" type="text" name="modelo" id="modelo" placeholder="Nome do modelo" value="<?php print($rowCarro=== null ? "" : $rowCarro['modelo']) ?>" required maxlength="100">
                     </div>
@@ -66,11 +69,11 @@ if(isset($_POST['btn_save'])){
                         <input  class="form-control" type="text" name="marca" id="marca" placeholder="Ford/Fiat" value="<?php print($rowCarro=== null ? "" : $rowCarro['marca']) ?>" required maxlength="100">
                     </div>
                     <div class="form-group">
-                        <label for="ano">ano *</label>
-                        <input  class="form-control" type="text" name="ano" id="ano" placeholder="Ford/Fiat" value="<?php print($rowCarro=== null ? "" : $rowCarro['ano']) ?>" required maxlength="4">
+                        <label for="ano">Ano *</label>
+                        <input  class="form-control" type="text" name="ano" id="ano" placeholder="YYYY" value="<?php print($rowCarro=== null ? "" : $rowCarro['ano']) ?>" required maxlength="4">
                     </div>
                     <div class="form-group">
-                        <label for="vlr_fip">Valor tabela Fip *</label>
+                        <label for="vlr_fip">Valor tabela Fipe *</label>
                         <input  class="form-control" type="text" name="vlr_fip" id="vlr_fip" value="<?php print($rowCarro=== null ? "" : $rowCarro['vlr_fip']) ?>" required maxlength="5">
                     </div>
                     <input class="btn btn-primary mb-2" type="submit" name="btn_save" value="Save">

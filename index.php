@@ -1,14 +1,14 @@
 <?php
-// Show PHP errors
+// Exibe os erros  PHP 
 ini_set('display_errors',1);
 ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
+//Importa a classe  Carro 
 require_once 'classes/carro.php';
 
 $objCarro = new Carro();
 
-// GET
 if(isset($_GET['delete_id'])){
   $id = $_GET['delete_id'];
   try{
@@ -43,28 +43,28 @@ if(isset($_GET['delete_id'])){
                     <?php
                       if(isset($_GET['updated'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro!<trong> Updated with success.
+                        <strong>Carro atualizado com sucesso!<trong> .
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"> &times; </span>
                           </button>
                         </div>';
                       }else if(isset($_GET['deleted'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro!<trong> Deleted with success.
+                        <strong>Carro deletado com sucesso!<trong> 
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"> &times; </span>
                           </button>
                         </div>';
                       }else if(isset($_GET['inserted'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>Carro!<trong> Inserted with success.
+                        <strong>Carro inserido com sucesso!<strong> 
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"> &times; </span>
                           </button>
                         </div>';
                       }else if(isset($_GET['error'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
-                        <strong>DB Error!<trong> Something went wrong with your action. Try again!
+                        <strong>Ops...Algo deu errado, tente novamente!</strong>!
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"> &times; </span>
                           </button>
@@ -112,8 +112,6 @@ if(isset($_GET['delete_id'])){
                                       </a>
                                     </td>
                                  </tr>
-
-
                           <?php } } ?>
                             </tbody>
                         </table>
@@ -124,12 +122,8 @@ if(isset($_GET['delete_id'])){
                 </main>
             </div>
         </div>
-        <!-- Footer scripts, and functions -->
         <?php require_once 'includes/footer.php'; ?>
-
-        <!-- Custom scripts -->
         <script>
-            // JQuery confirmation
             $('.confirmation').on('click', function () {
                 return confirm('Você tem certeza que deseja excluir este carro ?');
             });
